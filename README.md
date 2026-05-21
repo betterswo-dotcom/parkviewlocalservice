@@ -1,3 +1,381 @@
 # parkviewlocalservice
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Neighborhood Needs | Home & Community Services</title>
+  <meta name="description" content="Friendly, dependable home and community services including babysitting, lawn mowing, car cleaning, and trash bin cleaning." />
+  <style>
+    :root {
+      --bg: #173a84;
+      --bg-soft: #1f4a9d;
+      --accent: #9ce58d;
+      --accent-2: #d8f7c9;
+      --text: #f4f7fb;
+      --muted: rgba(244, 247, 251, 0.82);
+      --card: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.14);
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+    }
 
-betterswo.github.io/parkviewlocalservice
+.contact-form {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.form-row {
+  display: grid;
+  gap: 8px;
+}
+
+.form-row label {
+  font-weight: 700;
+  color: var(--accent-2);
+}
+
+.form-row input,
+.form-row textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  font: inherit;
+  outline: none;
+}
+
+.form-row input::placeholder,
+.form-row textarea::placeholder {
+  color: rgba(244, 247, 251, 0.6);
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(156, 229, 141, 0.18);
+}
+
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(156,229,141,0.18), transparent 30%),
+        linear-gradient(135deg, var(--bg) 0%, #16367a 50%, #112b63 100%);
+      color: var(--text);
+    }
+
+    body {
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 56px 0 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 40px;
+      align-items: center;
+      min-height: 70vh;
+    }
+
+    .logo-mark {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      border: 10px solid rgba(156,229,141,0.35);
+      position: relative;
+      margin-bottom: 28px;
+      box-shadow: inset 0 0 0 8px rgba(156,229,141,0.12);
+    }
+
+    .logo-mark::before,
+    .logo-mark::after {
+      content: "";
+      position: absolute;
+      inset: 25px;
+      border-radius: 50%;
+      border: 10px solid rgba(156,229,141,0.35);
+    }
+
+    .logo-mark::after {
+      inset: 70px;
+      border-color: rgba(156,229,141,0.45);
+    }
+
+    .dot {
+      position: absolute;
+      inset: 108px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 14px rgba(156,229,141,0.15);
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2.5rem, 6vw, 4.8rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      color: var(--accent);
+    }
+
+    .subtitle {
+      margin: 0 0 22px;
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text);
+      opacity: 0.95;
+    }
+
+    .lead {
+      max-width: 560px;
+      font-size: 1.08rem;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #12305d;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .section {
+      padding: 20px 0 70px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    .card h2, .card h3 {
+      margin-top: 0;
+      color: var(--accent-2);
+      margin-bottom: 10px;
+    }
+
+    .services ul {
+      padding-left: 18px;
+      margin: 0;
+    }
+
+    .services li {
+      margin: 10px 0;
+    }
+
+    .contact-item {
+      margin: 10px 0;
+      color: var(--text);
+    }
+
+    .contact-item a {
+      color: var(--accent-2);
+      text-decoration: none;
+    }
+
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      padding: 22px 0 36px;
+      color: rgba(244, 247, 251, 0.75);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 28px;
+      }
+
+      .logo-mark {
+        width: 220px;
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <div class="logo-mark" aria-hidden="true">
+            <div class="dot"></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="subtitle">Home & Community Services</p>
+          <h1>All Neighborhood Needs</h1>
+          <p class="lead">
+            Friendly, dependable help for the everyday jobs that make life easier.
+            We bring a personal touch, careful work, and service you can count on.
+          </p>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="tel:+15312139339">Call Now</a>
+            <a class="btn btn-secondary" href="mailto:carterjaes@yahoo.com">Email Us</a>
+          </div>
+
+          <div class="contact-item"><strong>Carter Jae Swoboda</strong> — Owner</div>
+          <div class="contact-item"><a href="tel:+15312139339">+1 (531) 213-9339</a></div>
+          <div class="contact-item"><a href="mailto:carterjaes@yahoo.com">carterjaes@yahoo.com</a></div>
+          <div class="contact-item">20459 Swallowtail St, Parkview, Gretna, NE</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid">
+        <div class="card services">
+          <h2>Services</h2>
+          <ul>
+            <li>Babysitting</li>
+            <li>Lawn mowing</li>
+            <li>Car cleaning</li>
+            <li>Trash bin cleaning</li>
+            <li>General neighborhood help</li>
+  <li>I will do almost any task you want/need me to do!</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Why Choose Us</h2>
+          <p>
+            We believe good service should feel simple, respectful, and reliable.
+            Whether it is a one-time task or recurring help, we work to make things easy
+            and comfortable for every customer. I also negotiate prices to what fits YOUR budget, so no breaks in your wallet!
+          </p>
+        </div>
+      </div>
+    </section>
+<section class="section">
+  <div class="container grid">
+    <div class="card">
+      <h2>Request a Service</h2>
+      <p>
+        Send a quick message and we’ll get back to you as soon as possible.
+      </p>
+
+      <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Your email" required>
+        </div>
+
+        <div class="form-row">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+        </div>
+
+        <div class="form-row">
+          <label for="service">Service Needed</label>
+          <input type="text" id="service" name="service" placeholder="Babysitting, mowing, cleaning, etc.">
+        </div>
+
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Tell us what you need" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Direct Contact</h2>
+      <p>
+        You can also reach us right away using the details below.
+      </p>
+      <div class="contact-item"><strong>Carter Jae Swoboda</strong> — Owner</div>
+      <div class="contact-item"><a href="tel:+15312139339">+1 (531) 213-9339</a></div>
+      <div class="contact-item"><a href="mailto:carterjaes@yahoo.com">carterjaes@yahoo.com</a></div>
+      <div class="contact-item">20459 Swallowtail St, Parkview, Gretna, NE</div>
+    </div>
+  </div>
+</section>
+
+    <div class="footer">
+      © <span id="year"></span> All Neighborhood Needs
+    </div>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html> 
